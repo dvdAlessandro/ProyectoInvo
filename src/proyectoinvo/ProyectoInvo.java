@@ -5,6 +5,10 @@
  */
 package proyectoinvo;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author David
@@ -14,7 +18,7 @@ public class ProyectoInvo {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         // TODO code application logic here
         Double d[][] =new Double[2][10];
         Double tent[][]=new Double[2][4];
@@ -71,7 +75,27 @@ public class ProyectoInvo {
         p.setTiempoEspera(tesp);
         
         
-        p.imprimir();
+       // p.imprimir();
+       Archivos a  = new Archivos();
+        try {
+            a.escribirProbabilidades(p);
+        } catch (IOException ex) {
+            Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            Probabilidades aux;
+            aux = a.leerProbabilidades();
+            System.out.println("lectura exitosa");
+            aux.imprimir();
+        } catch (IOException ex) {
+            Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+       
     }
     
 }

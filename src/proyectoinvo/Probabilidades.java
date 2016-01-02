@@ -5,11 +5,13 @@
  */
 package proyectoinvo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Enrique
  */
-public class Probabilidades {
+public class Probabilidades implements Serializable{
     private int filas = 2;
     private int col_dem = 10;
     private int col_te = 4;

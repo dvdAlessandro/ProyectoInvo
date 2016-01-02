@@ -5,10 +5,12 @@
  */
 package proyectoinvo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Enrique
  */
-public class Eventos {
+public class Eventos implements Serializable {
     
 }

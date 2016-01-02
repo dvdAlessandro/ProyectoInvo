@@ -5,13 +5,14 @@
  */
 package proyectoinvo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Enrique
  */
-public class PoliticaInventario {
+public class PoliticaInventario implements Serializable {
     private Double costo_inventario;
     private Double costo_orden;
     private Double costo_con_espera;
