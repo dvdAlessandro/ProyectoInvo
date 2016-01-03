@@ -18,7 +18,10 @@ public class PoliticaInventario implements Serializable {
     private Double costo_con_espera;
     private Double costo_sin_espera;
     private Integer inventario_inicial;
+    private Integer q;
+    private Integer R;
     private ArrayList<Eventos> tabla_eventos;
+    
 
     public PoliticaInventario(Double costo_inventario, Double costo_orden, Double costo_con_espera, Double costo_sin_espera, Integer inventario_inicial) {
         this.costo_inventario = costo_inventario;
@@ -67,6 +70,22 @@ public class PoliticaInventario implements Serializable {
 
     public void setInventario_inicial(Integer inventario_inicial) {
         this.inventario_inicial = inventario_inicial;
+    }
+
+    public Integer getQ() {
+        return q;
+    }
+
+    public void setQ(Integer q) {
+        this.q = q;
+    }
+
+    public Integer getPuntoReorden() {
+        return R;
+    }
+
+    public void setPuntoReorden(Integer R) {
+        this.R = R;
     }
     
     
