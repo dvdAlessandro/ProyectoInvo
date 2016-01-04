@@ -87,6 +87,10 @@ public class PoliticaInventario implements Serializable {
     public void setPuntoReorden(Integer R) {
         this.R = R;
     }
+
+    public ArrayList<Eventos> getTabla_eventos() {
+        return tabla_eventos;
+    }
     
     
     

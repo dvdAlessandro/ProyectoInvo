@@ -119,8 +119,7 @@ public class ProyectoInvo {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
        
     }
     

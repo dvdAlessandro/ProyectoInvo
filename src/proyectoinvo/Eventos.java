@@ -12,5 +12,16 @@ import java.io.Serializable;
  * @author Enrique
  */
 public class Eventos implements Serializable {
-    
+    Integer dia;
+    Integer invi;
+    Double nro_ale_dem;
+    Integer dem;
+    Integer invf;
+    Integer invp;
+    Integer fal;
+    Integer nro_orden;
+    Double nro_ale_tent;
+    Integer tent;
+    Double nro_ale_tesp;
+    Integer tesp;
 }
