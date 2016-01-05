@@ -42,21 +42,43 @@ public class Simulacion extends Thread{
     public void run(){
         
         tabla = poli.getTabla_eventos();  
-        evento = tabla.get(cont);
+        //evento = tabla.get(cont);
+        evento = new Eventos();
         evento.invi = poli.getInventario_inicial();
+        evento.dia = 1;
         Random rnd = new Random();
 
        
-        while(cont <= 365){
-            evento = tabla.get(cont);
-            evento.dia = cont + 1;
+        while(cont < 365){
+           // evento = tabla.get(cont);
             if (cont > 1){//no es el primer dia de simulacion
+                evento = new Eventos();
+                evento.dia = cont + 1;
                 evento.invi = tabla.get(cont-1).invf;
                 //chequear si hay orden llegando
+                if (aux_orden!=null && aux_orden.llegaOrden(evento.dia)){
+                    evento.invi += poli.getQ();
+                    aux_orden=null;
+                }
+                
+                for (int i = 0 ; i < lista_espera.size() ; i++){
+                    lista_espera.get(i).esperaAgotada(evento.dia);
+                    if (!lista_espera.get(i).isValido()){
+                        costo_faltante += (lista_espera.get(i).getDemanda_pendiente() * poli.getCosto_sin_espera());
+                        lista_espera.remove(i);
+                        i=0;//se vuelve a iniciar la iteracion puesto que al eliminar un elemento los indices i de la lista varian y se vuelve un rollo, es decir, solo se puede eliminar un elemento a la vez
+                    }
+                    else if (evento.invi >= lista_espera.get(i).getDemanda_pendiente()){
+                        costo_faltante += (lista_espera.get(i).getDemanda_pendiente() * poli.getCosto_con_espera());
+                        evento.invi -= lista_espera.get(i).getDemanda_pendiente();
+                        lista_espera.remove(i);
+                        i=0;
+                    }
+                } 
             }
             evento.nro_ale_dem = generarAleatorio(rnd);
             evento.dem = probabilidades.obtenerNumeroDemanda(evento.nro_ale_dem).intValue();
-            
+            System.out.println("dem: " +evento.dem);
             aux = evento.invi - evento.dem;
             if (aux <= 0){
                 evento.invf = 0;
@@ -77,7 +99,19 @@ public class Simulacion extends Thread{
                     lista_espera.add(aux_espera);//la añado a la lista de espera
                 }
             }
+            else {
+                evento.invf = aux;
+            }
+            
+            evento.invp = (evento.invi + evento.invf)/2;
+            poli.getTabla_eventos().add(evento);
+            System.out.println("dia :"+ evento.dia);
+            cont++;
         }
+        
+        
+        System.out.println("a ver:" + costo_faltante);
+        poli.imprimirTabla();
         //verificar que llegue una orden 
         //eliminar faltantes que dejaron de esperar
         //satisfacer faltantes

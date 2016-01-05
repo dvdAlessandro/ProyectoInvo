@@ -42,7 +42,12 @@ public class AuxEspera {
         this.valido = valido;
     }
     
-    
+    public void esperaAgotada(int dia){
+        if (dia > (this.dia_realizada + this.tiempo_espera))
+            this.valido = false;                                        
+      //  else
+          //  this.valido = true;
+    }
     
     
 }

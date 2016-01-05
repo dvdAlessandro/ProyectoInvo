@@ -24,4 +24,8 @@ public class Eventos implements Serializable {
     Integer tent;
     Double nro_ale_tesp;
     Integer tesp;
+    
+    public void Eventos(){
+        
+    }
 }

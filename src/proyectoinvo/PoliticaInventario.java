@@ -92,6 +92,44 @@ public class PoliticaInventario implements Serializable {
         return tabla_eventos;
     }
     
-    
+    public void imprimirTabla (){
+        Eventos evento;
+        System.out.println("TABLA EVENTOS!................................>>><<<<<");
+        System.out.println("\t Dia\t INVI\t ad\t DEM\t invf\t invp\t fal\t ord\t aent\t tent\t aesp\t tesp\t ");
+        for (int i = 0 ; i < this.tabla_eventos.size() ; i++){
+            evento = tabla_eventos.get(i);
+            System.out.print("\t" +evento.dia);
+            System.out.print("\t" +evento.invi);
+            System.out.print("\t" +evento.nro_ale_dem);
+            System.out.print("\t" +evento.dem);
+            System.out.print("\t" +evento.invf);
+            System.out.print("\t" +evento.invp);
+            if (evento.fal==null)
+                System.out.print("\t-");
+            else
+                System.out.print("\t" +evento.fal);
+            if (evento.nro_orden==null)
+                System.out.print("\t-");
+            else
+                System.out.print("\t" +evento.nro_orden);
+            if (evento.nro_ale_tent==null)
+                System.out.print("\t-");
+            else
+                System.out.print("\t" +evento.nro_ale_tent);
+            if (evento.tent==null)
+                System.out.print("\t-");
+            else
+                System.out.print("\t" +evento.tent);
+            if (evento.nro_ale_tesp==null)
+                System.out.print("\t-");
+            else
+                System.out.print("\t" +evento.nro_ale_tesp);
+            if (evento.tesp==null)
+                System.out.println("\t-");
+            else
+                System.out.println("\t" +evento.tesp);
+            
+        }
+    }
     
 }

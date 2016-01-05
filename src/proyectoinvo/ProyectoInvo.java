@@ -121,6 +121,10 @@ public class ProyectoInvo {
         }
 
        
+        
+        Simulacion s = new Simulacion (poli,p);
+        s.start();
+        
     }
     
 }
