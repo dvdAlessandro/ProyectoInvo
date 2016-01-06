@@ -12,9 +12,10 @@ import java.util.Random;
  *
  * @author Enrique
  */
-public class Simulacion extends Thread{
+public class Simulacion{
     private PoliticaInventario poli;
     private Probabilidades probabilidades;
+    private Intervalo i;
     
     
     private static int dias = 365;
@@ -37,6 +38,7 @@ public class Simulacion extends Thread{
     public Simulacion(PoliticaInventario poli, Probabilidades probabilidades) {
         this.poli = poli;
         this.probabilidades = probabilidades;
+        this.i = new Intervalo(poli.getCosto_inventario(),poli.getCosto_orden(),poli.getCosto_con_espera(),poli.getCosto_sin_espera(),probabilidades,dias);
     }
     
     public void run(){
@@ -126,5 +128,6 @@ public class Simulacion extends Thread{
     private Double generarAleatorio(Random rnd){
         return Math.rint(rnd.nextDouble());
     }
+    
     
 }

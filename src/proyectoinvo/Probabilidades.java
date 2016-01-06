@@ -121,6 +121,48 @@ public class Probabilidades implements Serializable{
         }
         return null;
     }
+    
+    public Double getMenorDemanda(){
+        Double min = demanda_diaria[0][0];
+        for (int i = 1; i < demanda_diaria[0].length; i++) {
+            if (demanda_diaria[0][i] < min) {
+                min = demanda_diaria[0][i];
+            }
+        }
+        return min;
+    }
+    
+    public Double getMayorDemanda(){
+        Double max = demanda_diaria[0][0];
+        for (int i = 1; i < demanda_diaria[0].length; i++) {
+            if (demanda_diaria[0][i] > max) {
+                max = demanda_diaria[0][i];
+            }
+        }
+        return max;
+    }
+    
+    public Double getMenorTEnt(){
+        Double min = tiempo_entrega[0][0];
+        for (int i = 1; i < tiempo_entrega[0].length; i++) {
+            if (tiempo_entrega[0][i] < min) {
+                min = tiempo_entrega[0][i];
+            }
+        }
+        return min;
+    }
+    
+    public Double getMayorTEnt(){
+        Double max = tiempo_entrega[0][0];
+        for (int i = 1; i < tiempo_entrega[0].length; i++) {
+            if (tiempo_entrega[0][i] > max) {
+                max = tiempo_entrega[0][i];
+            }
+        }
+        return max;
+    }
+    
+    
     public void imprimir(){
         int i ,j;
         System.out.println("DEMANDA DIARIA\n");

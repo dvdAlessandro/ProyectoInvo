@@ -31,7 +31,7 @@ public class ProyectoInvo {
         d[0][4] = 29.0;
         d[0][5] = 30.0;
         d[0][6] = 31.0;
-        d[0][7] = 35.0;
+        d[0][7] = 32.0;
         d[0][8] = 33.0;
         d[0][9] = 34.0;
         
@@ -89,7 +89,7 @@ public class ProyectoInvo {
         try {
             Probabilidades aux;
             aux = a.leerProbabilidades();
-            System.out.println("lectura exitosa");
+           /* System.out.println("lectura exitosa");
             aux.imprimir();
             
             
@@ -113,7 +113,15 @@ public class ProyectoInvo {
             System.out.println("\n\n Nros Aleatorios Demanda");
             for (int i=0 ; i < nad.length ; i++){
                 System.out.print(aux.obtenerNumeroDemanda(nad[i]) + "\t");
-            }
+            }*/
+            Intervalo i = new Intervalo(poli.getCosto_inventario(),poli.getCosto_orden(),poli.getCosto_con_espera(),poli.getCosto_sin_espera(),p,365);
+            /*System.out.println("Qmin: " + i.getQmin() );
+            System.out.println("Qmax: " + i.getQmax() );
+            System.out.println("PRmin: " + i.getRmin() );
+            System.out.println("PRmax: " + i.getRmax() );
+            
+            System.out.println("calculado: " + i.calcularQ(12410.0,100.0,52.0,20.0));
+            System.out.println("mayor demanda: "+ p.getMenorDemanda());*/
         } catch (IOException ex) {
             Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -122,8 +130,9 @@ public class ProyectoInvo {
 
        
         
+       
         Simulacion s = new Simulacion (poli,p);
-        s.start();
+       // s.run();
         
     }
     
