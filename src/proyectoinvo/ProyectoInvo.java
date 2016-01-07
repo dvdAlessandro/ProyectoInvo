@@ -76,9 +76,9 @@ public class ProyectoInvo {
         
        
        //p.imprimir();
-       PoliticaInventario poli = new PoliticaInventario(52.0, 100.0,20.0, 50.0, 50);
+      /* PoliticaInventario poli = new PoliticaInventario(52.0, 100.0,20.0, 50.0, 50);
        poli.setQ(100);
-       poli.setPuntoReorden(75);
+       poli.setR(75);*/
        Archivos a  = new Archivos();
         try {
             a.escribirProbabilidades(p);
@@ -89,32 +89,30 @@ public class ProyectoInvo {
         try {
             Probabilidades aux;
             aux = a.leerProbabilidades();
-           /* System.out.println("lectura exitosa");
-            aux.imprimir();
-            
-            
-            Double nad[] = new Double[15];
-            nad[0] = 0.69 ;
-            nad[1] = 0.37 ;
-            nad[2] = 0.75 ;
-            nad[3] = 0.60 ;
-            nad[4] = 0.54 ;
-            nad[5] = 0.47 ;
-            nad[6] = 0.79 ;
-            nad[7] = 0.96 ;
-            nad[8] = 0.42 ;
-            nad[9] = 0.98 ;
-            nad[10] = 0.15 ;
-            nad[11] = 0.59 ;
-            nad[12] = 0.37 ;
-            nad[13] = 0.25 ;
-            nad[14] = 0.14 ;
-
-            System.out.println("\n\n Nros Aleatorios Demanda");
-            for (int i=0 ; i < nad.length ; i++){
-                System.out.print(aux.obtenerNumeroDemanda(nad[i]) + "\t");
-            }*/
+            PoliticaInventario poli = new PoliticaInventario(52.0, 100.0,20.0, 50.0, 50);
             Intervalo i = new Intervalo(poli.getCosto_inventario(),poli.getCosto_orden(),poli.getCosto_con_espera(),poli.getCosto_sin_espera(),p,365);
+            Double Qmin,Qmax,Rmin,Rmax;
+            Qmin =  Math.rint((100*(i.getQmin()))/100);
+            Qmax = Math.rint((100*(i.getQmax()))/100);
+            Rmin = Math.rint((100*(i.getRmin()))/100);
+            Rmax = Math.rint((100*(i.getRmax()))/100);
+            PoliticaInventario poliopt = null;
+            Double costo_menor=9999999999999999999999999999999999999999999999.0;
+            for (int q = Qmin.intValue() ; q <= Qmax.intValue() ; q++){
+                for (int r = Rmin.intValue() ; r<= Rmax.intValue() ;r++){
+                    poli = new PoliticaInventario(52.0, 100.0,20.0, 50.0, 50);
+                    poli.setQ(q);
+                    poli.setR(r);
+                    Simulacion s = new Simulacion (poli,p);
+                    s.run();
+                    
+                    if (s.getCostoTotal() < costo_menor)
+                        costo_menor = s.getCostoTotal();
+                    poliopt = poli;
+                }
+            }
+            
+            System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR());
             /*System.out.println("Qmin: " + i.getQmin() );
             System.out.println("Qmax: " + i.getQmax() );
             System.out.println("PRmin: " + i.getRmin() );
@@ -131,8 +129,9 @@ public class ProyectoInvo {
        
         
        
-        Simulacion s = new Simulacion (poli,p);
-       // s.run();
+        
+       /* Simulacion s = new Simulacion (poli,p);
+        s.run();*/
         
     }
     

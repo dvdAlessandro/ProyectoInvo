@@ -15,13 +15,14 @@ import java.util.Random;
 public class Simulacion{
     private PoliticaInventario poli;
     private Probabilidades probabilidades;
-    private Intervalo i;
+    //private Intervalo i;
     
     
     private static int dias = 365;
     private Double costo_total;
     private int nro_ordenes=0;
     private Double costo_faltante=0.0;
+    private Double costo_promedio_diario=0.0;
     
     
     private ArrayList<Eventos> tabla;
@@ -38,7 +39,7 @@ public class Simulacion{
     public Simulacion(PoliticaInventario poli, Probabilidades probabilidades) {
         this.poli = poli;
         this.probabilidades = probabilidades;
-        this.i = new Intervalo(poli.getCosto_inventario(),poli.getCosto_orden(),poli.getCosto_con_espera(),poli.getCosto_sin_espera(),probabilidades,dias);
+        //this.i = new Intervalo(poli.getCosto_inventario(),poli.getCosto_orden(),poli.getCosto_con_espera(),poli.getCosto_sin_espera(),probabilidades,dias);
     }
     
     public void run(){
@@ -80,7 +81,7 @@ public class Simulacion{
             }
             evento.nro_ale_dem = generarAleatorio(rnd);
             evento.dem = probabilidades.obtenerNumeroDemanda(evento.nro_ale_dem).intValue();
-            System.out.println("dem: " +evento.dem);
+           // System.out.println("dem: " +evento.dem);
             aux = evento.invi - evento.dem;
             if (aux <= 0){
                 evento.invf = 0;
@@ -106,14 +107,19 @@ public class Simulacion{
             }
             
             evento.invp = (evento.invi + evento.invf)/2;
+            costo_promedio_diario +=evento.invp;
             poli.getTabla_eventos().add(evento);
-            System.out.println("dia :"+ evento.dia);
+           // System.out.println("dia :"+ evento.dia);
             cont++;
         }
         
-        
+      
+       // poli.imprimirTabla();
+        /*System.out.println("costo ordenes: "+nro_ordenes +"   " +(nro_ordenes*poli.getCosto_orden()));
         System.out.println("a ver:" + costo_faltante);
-        poli.imprimirTabla();
+        System.out.println("costo_promedio_diario " + costo_promedio_diario * (poli.getCosto_inventario()/dias));*/
+        costo_total = (nro_ordenes*poli.getCosto_orden()) + costo_faltante + costo_promedio_diario * (poli.getCosto_inventario()/dias);
+        System.out.println("Costo total con q:" +this.poli.getQ() + " y R:"+poli.getR() + "  -> "+costo_total);
         //verificar que llegue una orden 
         //eliminar faltantes que dejaron de esperar
         //satisfacer faltantes
@@ -127,6 +133,10 @@ public class Simulacion{
     
     private Double generarAleatorio(Random rnd){
         return Math.rint(rnd.nextDouble());
+    }
+    
+    public Double getCostoTotal(){
+        return this.costo_total;
     }
     
     

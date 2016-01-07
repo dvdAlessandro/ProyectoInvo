@@ -80,11 +80,11 @@ public class PoliticaInventario implements Serializable {
         this.q = q;
     }
 
-    public Integer getPuntoReorden() {
+    public Integer getR() {
         return R;
     }
 
-    public void setPuntoReorden(Integer R) {
+    public void setR(Integer R) {
         this.R = R;
     }
 
