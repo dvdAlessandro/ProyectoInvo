@@ -102,9 +102,6 @@ public class ProyectoInvo {
             System.out.println("Rmax: " + Rmax);
             PoliticaInventario poliopt = null;
             Double costo_menor=9999999999999999999999999999999999999999999999.0;
-            Double epale1 = null;
-            Double epale2 = null;
-            Double epale3 = null;
             for (int q = Qmin.intValue() ; q <= Qmax.intValue() ; q++){
                 for (int r = Rmin.intValue() ; r<= Rmax.intValue() ;r++){
                     poli = new PoliticaInventario(52.0, 100.0,20.0, 50.0, 50);
@@ -116,17 +113,11 @@ public class ProyectoInvo {
                     if (s.getCostoTotal() <= costo_menor){
                         costo_menor = s.getCostoTotal();
                         poliopt = poli;
-                        epale1 = s.epale1;
-                        epale2 = s.epale2;
-                        epale3 = s.epale3;
-                        
                     }
                 }
             }
             
             System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "costo: "+ costo_menor );
-            System.out.println("costo orden: " +epale1+"costo_faltante: " +epale2+ "costo_promedio_diario" + epale3);
-            System.out.println("lo mismo pero bello: " +(40*epale1)+"   " + epale2 + "   " + epale3 *(52.0/365));
             poliopt.imprimirTabla();
         } catch (IOException ex) {
             Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
