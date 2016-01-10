@@ -13,12 +13,16 @@ import java.util.Random;
  * @author Enrique
  */
 public class Simulacion{
+    public Double epale1;
+    public Double epale2;
+    public Double epale3;
+    
     private PoliticaInventario poli;
     private Probabilidades probabilidades;
     //private Intervalo i;
     
     
-    private static int dias = 365;
+    private static final int dias = 365;
     private Double costo_total;
     private int nro_ordenes=0;
     private Double costo_faltante=0.0;
@@ -39,22 +43,20 @@ public class Simulacion{
     public Simulacion(PoliticaInventario poli, Probabilidades probabilidades) {
         this.poli = poli;
         this.probabilidades = probabilidades;
-        //this.i = new Intervalo(poli.getCosto_inventario(),poli.getCosto_orden(),poli.getCosto_con_espera(),poli.getCosto_sin_espera(),probabilidades,dias);
     }
     
     public void run(){
         
         tabla = poli.getTabla_eventos();  
-        //evento = tabla.get(cont);
         evento = new Eventos();
         evento.invi = poli.getInventario_inicial();
         evento.dia = 1;
-        Random rnd = new Random();
-
+        Random rnd = new Random(100);
+       // cont=1;
        
-        while(cont < 365){
+        while(cont < dias ){
            // evento = tabla.get(cont);
-            if (cont > 1){//no es el primer dia de simulacion
+            if (evento==null){//no es el primer dia de simulacion
                 evento = new Eventos();
                 evento.dia = cont + 1;
                 evento.invi = tabla.get(cont-1).invf;
@@ -81,7 +83,6 @@ public class Simulacion{
             }
             evento.nro_ale_dem = generarAleatorio(rnd);
             evento.dem = probabilidades.obtenerNumeroDemanda(evento.nro_ale_dem).intValue();
-           // System.out.println("dem: " +evento.dem);
             aux = evento.invi - evento.dem;
             if (aux <= 0){
                 evento.invf = 0;
@@ -104,12 +105,20 @@ public class Simulacion{
             }
             else {
                 evento.invf = aux;
+                if (evento.invf <= poli.getR() && aux_orden==null){//no hay orden, genero una
+                        nro_ordenes++;
+                        evento.nro_orden =nro_ordenes;
+                        evento.nro_ale_tent = generarAleatorio(rnd);
+                        evento.tent = probabilidades.obtenerNumeroTEntrega(evento.nro_ale_tent).intValue();
+                        aux_orden = new AuxOrdenEntrega(evento.nro_orden,evento.tent,evento.dia);     
+                    }
             }
             
             evento.invp = (evento.invi + evento.invf)/2;
             costo_promedio_diario +=evento.invp;
-            poli.getTabla_eventos().add(evento);
+            tabla.add(evento);
            // System.out.println("dia :"+ evento.dia);
+            evento=null;
             cont++;
         }
         
@@ -118,8 +127,12 @@ public class Simulacion{
         /*System.out.println("costo ordenes: "+nro_ordenes +"   " +(nro_ordenes*poli.getCosto_orden()));
         System.out.println("a ver:" + costo_faltante);
         System.out.println("costo_promedio_diario " + costo_promedio_diario * (poli.getCosto_inventario()/dias));*/
-        costo_total = (nro_ordenes*poli.getCosto_orden()) + costo_faltante + costo_promedio_diario * (poli.getCosto_inventario()/dias);
-        System.out.println("Costo total con q:" +this.poli.getQ() + " y R:"+poli.getR() + "  -> "+costo_total);
+        epale1 = poli.getCosto_orden();
+        epale2 = costo_faltante;
+        epale3 = costo_promedio_diario;
+        //System.out.println("vamos a ver q es lo tuyo " + (costo_promedio_diario * (poli.getCosto_inventario()/dias)));
+        costo_total = (nro_ordenes*poli.getCosto_orden()) + costo_faltante + (costo_promedio_diario * (poli.getCosto_inventario()/dias));
+    //    System.out.println("Costo total con q:" +this.poli.getQ() + " y R:"+poli.getR() + "  -> "+costo_total);
         //verificar que llegue una orden 
         //eliminar faltantes que dejaron de esperar
         //satisfacer faltantes

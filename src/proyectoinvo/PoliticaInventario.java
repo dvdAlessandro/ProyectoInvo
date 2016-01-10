@@ -87,6 +87,8 @@ public class PoliticaInventario implements Serializable {
     public void setR(Integer R) {
         this.R = R;
     }
+    
+    
 
     public ArrayList<Eventos> getTabla_eventos() {
         return tabla_eventos;
@@ -96,7 +98,7 @@ public class PoliticaInventario implements Serializable {
         Eventos evento;
         System.out.println("TABLA EVENTOS!................................>>><<<<<");
         System.out.println("\t Dia\t INVI\t ad\t DEM\t invf\t invp\t fal\t ord\t aent\t tent\t aesp\t tesp\t ");
-        for (int i = 0 ; i < this.tabla_eventos.size() ; i++){
+        for (int i = 0 ; i <  this.tabla_eventos.size() ; i++){
             evento = tabla_eventos.get(i);
             System.out.print("\t" +evento.dia);
             System.out.print("\t" +evento.invi);

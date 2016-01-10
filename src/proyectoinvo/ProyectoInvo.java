@@ -31,7 +31,7 @@ public class ProyectoInvo {
         d[0][4] = 29.0;
         d[0][5] = 30.0;
         d[0][6] = 31.0;
-        d[0][7] = 32.0;
+        d[0][7] = 35.0;
         d[0][8] = 33.0;
         d[0][9] = 34.0;
         
@@ -96,8 +96,15 @@ public class ProyectoInvo {
             Qmax = Math.rint((100*(i.getQmax()))/100);
             Rmin = Math.rint((100*(i.getRmin()))/100);
             Rmax = Math.rint((100*(i.getRmax()))/100);
+            System.out.println("Qmin: " + Qmin);
+            System.out.println("Qmax: " + Qmax);
+            System.out.println("Rmin: " + Rmin);
+            System.out.println("Rmax: " + Rmax);
             PoliticaInventario poliopt = null;
             Double costo_menor=9999999999999999999999999999999999999999999999.0;
+            Double epale1 = null;
+            Double epale2 = null;
+            Double epale3 = null;
             for (int q = Qmin.intValue() ; q <= Qmax.intValue() ; q++){
                 for (int r = Rmin.intValue() ; r<= Rmax.intValue() ;r++){
                     poli = new PoliticaInventario(52.0, 100.0,20.0, 50.0, 50);
@@ -106,20 +113,21 @@ public class ProyectoInvo {
                     Simulacion s = new Simulacion (poli,p);
                     s.run();
                     
-                    if (s.getCostoTotal() < costo_menor)
+                    if (s.getCostoTotal() <= costo_menor){
                         costo_menor = s.getCostoTotal();
-                    poliopt = poli;
+                        poliopt = poli;
+                        epale1 = s.epale1;
+                        epale2 = s.epale2;
+                        epale3 = s.epale3;
+                        
+                    }
                 }
             }
             
-            System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR());
-            /*System.out.println("Qmin: " + i.getQmin() );
-            System.out.println("Qmax: " + i.getQmax() );
-            System.out.println("PRmin: " + i.getRmin() );
-            System.out.println("PRmax: " + i.getRmax() );
-            
-            System.out.println("calculado: " + i.calcularQ(12410.0,100.0,52.0,20.0));
-            System.out.println("mayor demanda: "+ p.getMenorDemanda());*/
+            System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "costo: "+ costo_menor );
+            System.out.println("costo orden: " +epale1+"costo_faltante: " +epale2+ "costo_promedio_diario" + epale3);
+            System.out.println("lo mismo pero bello: " +(40*epale1)+"   " + epale2 + "   " + epale3 *(52.0/365));
+            poliopt.imprimirTabla();
         } catch (IOException ex) {
             Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
