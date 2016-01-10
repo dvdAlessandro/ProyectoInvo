@@ -14,6 +14,8 @@ public class simulacionInterfaz extends javax.swing.JFrame {
     /**
      * Creates new form simulacionInterfaz
      */
+    
+    
     public simulacionInterfaz() {
         initComponents();
     }

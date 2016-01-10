@@ -20,6 +20,8 @@ public class ProyectoInvo {
      */
     public static void main(String[] args)  {
         // TODO code application logic here
+        
+        
         Double d[][] =new Double[2][10];
         Double tent[][]=new Double[2][4];
         Double tesp[][]=new Double[2][5];
@@ -69,6 +71,34 @@ public class ProyectoInvo {
         tesp[1][4] = 0.1;
                 
         Probabilidades p = new Probabilidades();
+        Interfaz I = new  Interfaz ();
+        I.setVisible(true);
+        
+        
+         for (int i =0 ; i <= 1 ; i++){
+           for (int j =0 ; j <= 9 ; i++){ 
+               d[i][j]=I.demanda_d[i][j];
+           } 
+         }
+         
+         for (int i =0 ; i <= 1 ; i++){
+           for (int j =0 ; j <= 3 ; i++){ 
+               d[i][j]=I.demanda_d[i][j];
+           } 
+         }
+         
+         for (int i =0 ; i <= 1 ; i++){
+           for (int j =0 ; j <= 4 ; i++){ 
+               d[i][j]=I.demanda_d[i][j];
+           } 
+         }
+        
+        
+        
+        
+        
+        
+        
         
         p.setDemanda(d);
         p.setTiempoEntrega(tent);
@@ -109,7 +139,6 @@ public class ProyectoInvo {
                     poli.setR(r);
                     Simulacion s = new Simulacion (poli,p);
                     s.run();
-                    
                     if (s.getCostoTotal() < costo_menor){
                         costo_menor = s.getCostoTotal();
                         poliopt = poli;
