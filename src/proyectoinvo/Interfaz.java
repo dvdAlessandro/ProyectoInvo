@@ -11,11 +11,20 @@ package proyectoinvo;
  */
 public class Interfaz extends javax.swing.JFrame {
 
+        Double demanda_d[][] =new Double[2][10];
+        Double t_entrega[][]=new Double[2][4];
+        Double t_espera[][]=new Double[2][5];
+        Double c_inv;
+        Double c_ord;
+        Double c_f_espera;
+        Double c_f_s_espera;
+        int inv_inicial;
     /**
      * Creates new form NewJFrame
      */
     public Interfaz() {
         initComponents();
+        
     }
 
     /**
@@ -59,12 +68,10 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
         jTextField36 = new javax.swing.JTextField();
         jTextField37 = new javax.swing.JTextField();
         jTextField38 = new javax.swing.JTextField();
         jTextField39 = new javax.swing.JTextField();
-        jTextField40 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -109,6 +116,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jTextField34 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -207,9 +215,9 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(3, 3, 3)
                         .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,9 +355,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -357,9 +363,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -372,15 +376,13 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField40, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -731,19 +733,31 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(635, 635, 635))
             .addGroup(layout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(213, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -751,13 +765,15 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(91, 91, 91))
+                .addGap(33, 33, 33)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
@@ -799,6 +815,80 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField30ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+        // DemandaDiaria
+        demanda_d[0][0]= Double.parseDouble(jTextField1.getText()); 
+        demanda_d[0][1]= Double.parseDouble(jTextField10.getText()); 
+        demanda_d[0][2]= Double.parseDouble(jTextField2.getText()); 
+        demanda_d[0][3]= Double.parseDouble(jTextField3.getText()); 
+        demanda_d[0][4]= Double.parseDouble(jTextField11.getText()); 
+        demanda_d[0][5]= Double.parseDouble(jTextField12.getText()); 
+        demanda_d[0][6]= Double.parseDouble(jTextField13.getText()); 
+        demanda_d[0][7]= Double.parseDouble(jTextField14.getText()); 
+        demanda_d[0][8]= Double.parseDouble(jTextField17.getText());
+        demanda_d[0][9]= Double.parseDouble(jTextField16.getText()); 
+        
+        // ProbabilidadDemandaDiaria
+        demanda_d[1][0]= Double.parseDouble(jTextField22.getText()); 
+        demanda_d[1][1]= Double.parseDouble(jTextField23.getText()); 
+        demanda_d[1][2]= Double.parseDouble(jTextField20.getText()); 
+        demanda_d[1][3]= Double.parseDouble(jTextField21.getText()); 
+        demanda_d[1][4]= Double.parseDouble(jTextField24.getText()); 
+        demanda_d[1][5]= Double.parseDouble(jTextField25.getText()); 
+        demanda_d[1][6]= Double.parseDouble(jTextField26.getText()); 
+        demanda_d[1][7]= Double.parseDouble(jTextField27.getText()); 
+        demanda_d[1][8]= Double.parseDouble(jTextField19.getText());
+        demanda_d[1][9]= Double.parseDouble(jTextField18.getText()); 
+        
+        //TiempoDeEntrega
+        t_entrega[0][0]= Double.parseDouble(jTextField4.getText()); 
+        t_entrega[0][1]= Double.parseDouble(jTextField15.getText()); 
+        t_entrega[0][2]= Double.parseDouble(jTextField5.getText()); 
+        t_entrega[0][3]= Double.parseDouble(jTextField6.getText()); 
+                
+        //ProbabilidadTiempoEntrega
+        t_entrega[1][0]= Double.parseDouble(jTextField38.getText()); 
+        t_entrega[1][1]= Double.parseDouble(jTextField39.getText()); 
+        t_entrega[1][2]= Double.parseDouble(jTextField36.getText()); 
+        t_entrega[1][3]= Double.parseDouble(jTextField37.getText()); 
+        
+        //TiempoDeEsperaClientes
+        t_espera[0][0]=Double.parseDouble(jTextField7.getText()); 
+        t_espera[0][1]=Double.parseDouble(jTextField4.getText()); 
+        t_espera[0][2]=Double.parseDouble(jTextField8.getText()); 
+        t_espera[0][3]=Double.parseDouble(jTextField9.getText()); 
+        t_espera[0][4]=Double.parseDouble(jTextField45.getText()); 
+        
+        //ProbabilidadTiempoEsperaClientes
+        t_espera[1][0]=Double.parseDouble(jTextField55.getText()); 
+        t_espera[1][1]=Double.parseDouble(jTextField56.getText()); 
+        t_espera[1][2]=Double.parseDouble(jTextField53.getText()); 
+        t_espera[1][3]=Double.parseDouble(jTextField54.getText()); 
+        t_espera[1][4]=Double.parseDouble(jTextField57.getText()); 
+        
+        // 
+         c_inv=Double.parseDouble(jTextField30.getText()); 
+         c_ord=Double.parseDouble(jTextField31.getText()); 
+         c_f_espera=Double.parseDouble(jTextField32.getText()); 
+         c_f_s_espera=Double.parseDouble(jTextField33.getText()); 
+         inv_inicial=Integer.parseInt(jTextField34.getText()); 
+        
+        
+        
+        System.out.println(demanda_d[0][1]);
+
+
+        
+        
+        
+        
+        
+        
+
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -838,6 +928,7 @@ public class Interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -893,7 +984,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
@@ -905,7 +995,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField44;
     private javax.swing.JTextField jTextField45;
     private javax.swing.JTextField jTextField5;
