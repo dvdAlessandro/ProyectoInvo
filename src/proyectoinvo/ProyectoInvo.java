@@ -139,7 +139,7 @@ public class ProyectoInvo {
       /* PoliticaInventario poli = new PoliticaInventario(52.0, 100.0,20.0, 50.0, 50);
        poli.setQ(100);
        poli.setR(75);*/
-       Archivos a  = new Archivos();
+  /*     Archivos a  = new Archivos();
         try {
             a.escribirProbabilidades(p);
         } catch (IOException ex) {
@@ -156,10 +156,7 @@ public class ProyectoInvo {
             Qmax = Math.rint((100*(i.getQmax()))/100);
             Rmin = Math.rint((100*(i.getRmin()))/100);
             Rmax = Math.rint((100*(i.getRmax()))/100);
-           /* System.out.println("Qmin: " + Qmin);
-            System.out.println("Qmax: " + Qmax);
-            System.out.println("Rmin: " + Rmin);
-            System.out.println("Rmax: " + Rmax);*/
+
             PoliticaInventario poliopt = null;
             Double costo_menor=9999999999999999999999999999999999999999999999.0;
             for (int q = Qmin.intValue() ; q <= Qmax.intValue() ; q++){
@@ -178,19 +175,14 @@ public class ProyectoInvo {
             
             System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "   costo_total: "+ costo_menor );
             poliopt.imprimirTabla();
-            
-            /*poli.setQ(294);
-            poli.setR(136);
-             Simulacion s = new Simulacion (poli,p);
-                    s.run();
-                    poli.imprimirTabla();*/
+
             
         } catch (IOException ex) {
             Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+*/
        
         
        
