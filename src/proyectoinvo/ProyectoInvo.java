@@ -71,7 +71,7 @@ public class ProyectoInvo {
         tesp[1][4] = 0.1;
                 
         Probabilidades p = new Probabilidades();
-        Interfaz I = new  Interfaz ();
+       /* Interfaz I = new  Interfaz ();
         I.setVisible(true);
         
         
@@ -92,7 +92,7 @@ public class ProyectoInvo {
                d[i][j]=I.demanda_d[i][j];
            } 
          }
-        
+        */
         
         
         
@@ -146,7 +146,7 @@ public class ProyectoInvo {
                 }
             }
             
-            System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "costo: "+ costo_menor );
+            System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "   costo_total: "+ costo_menor );
             poliopt.imprimirTabla();
             
             /*poli.setQ(294);
