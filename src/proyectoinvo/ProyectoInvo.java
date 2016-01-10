@@ -96,10 +96,10 @@ public class ProyectoInvo {
             Qmax = Math.rint((100*(i.getQmax()))/100);
             Rmin = Math.rint((100*(i.getRmin()))/100);
             Rmax = Math.rint((100*(i.getRmax()))/100);
-            System.out.println("Qmin: " + Qmin);
+           /* System.out.println("Qmin: " + Qmin);
             System.out.println("Qmax: " + Qmax);
             System.out.println("Rmin: " + Rmin);
-            System.out.println("Rmax: " + Rmax);
+            System.out.println("Rmax: " + Rmax);*/
             PoliticaInventario poliopt = null;
             Double costo_menor=9999999999999999999999999999999999999999999999.0;
             for (int q = Qmin.intValue() ; q <= Qmax.intValue() ; q++){
@@ -110,7 +110,7 @@ public class ProyectoInvo {
                     Simulacion s = new Simulacion (poli,p);
                     s.run();
                     
-                    if (s.getCostoTotal() <= costo_menor){
+                    if (s.getCostoTotal() < costo_menor){
                         costo_menor = s.getCostoTotal();
                         poliopt = poli;
                     }
@@ -119,6 +119,13 @@ public class ProyectoInvo {
             
             System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "costo: "+ costo_menor );
             poliopt.imprimirTabla();
+            
+            /*poli.setQ(294);
+            poli.setR(136);
+             Simulacion s = new Simulacion (poli,p);
+                    s.run();
+                    poli.imprimirTabla();*/
+            
         } catch (IOException ex) {
             Logger.getLogger(ProyectoInvo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

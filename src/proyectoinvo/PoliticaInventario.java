@@ -6,6 +6,7 @@
 package proyectoinvo;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -96,13 +97,15 @@ public class PoliticaInventario implements Serializable {
     
     public void imprimirTabla (){
         Eventos evento;
+         DecimalFormat decimales = new DecimalFormat("0.00");
+        
         System.out.println("TABLA EVENTOS!................................>>><<<<<");
         System.out.println("\t Dia\t INVI\t ad\t DEM\t invf\t invp\t fal\t ord\t aent\t tent\t aesp\t tesp\t ");
         for (int i = 0 ; i <  this.tabla_eventos.size() ; i++){
             evento = tabla_eventos.get(i);
             System.out.print("\t" +evento.dia);
             System.out.print("\t" +evento.invi);
-            System.out.print("\t" +evento.nro_ale_dem);
+            System.out.print("\t" +decimales.format(evento.nro_ale_dem));
             System.out.print("\t" +evento.dem);
             System.out.print("\t" +evento.invf);
             System.out.print("\t" +evento.invp);
@@ -117,7 +120,7 @@ public class PoliticaInventario implements Serializable {
             if (evento.nro_ale_tent==null)
                 System.out.print("\t-");
             else
-                System.out.print("\t" +evento.nro_ale_tent);
+                System.out.print("\t" +decimales.format(evento.nro_ale_tent));
             if (evento.tent==null)
                 System.out.print("\t-");
             else
@@ -125,7 +128,7 @@ public class PoliticaInventario implements Serializable {
             if (evento.nro_ale_tesp==null)
                 System.out.print("\t-");
             else
-                System.out.print("\t" +evento.nro_ale_tesp);
+                System.out.print("\t" +decimales.format(evento.nro_ale_tesp));
             if (evento.tesp==null)
                 System.out.println("\t-");
             else

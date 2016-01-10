@@ -88,24 +88,22 @@ public class Simulacion{
             aux = evento.invi - evento.dem;
             
             
-            if (aux <= 0){ // si el inventario llego a  0
+            if (aux < 0){// si existieron faltantes.
                 evento.invf = 0;
-                if (aux < 0){// si existieron faltantes.
-                    evento.fal = aux * (-1);//seteo cuantos faltaron
-                    
-                    if (aux_orden==null){//no hay orden, genero una
-                        nro_ordenes++;
-                        evento.nro_orden =nro_ordenes;
-                        evento.nro_ale_tent = generarAleatorio(rnd);
-                        evento.tent = probabilidades.obtenerNumeroTEntrega(evento.nro_ale_tent).intValue();
-                        aux_orden = new AuxOrdenEntrega(evento.nro_orden,evento.tent,evento.dia);     
-                    }
-                    //genero una espera...
-                    evento.nro_ale_tesp = generarAleatorio(rnd);
-                    evento.tesp = probabilidades.obtenerNumeroTEspera(evento.nro_ale_tesp).intValue();
-                    aux_espera = new AuxEspera(evento.tesp,evento.fal,evento.dia,true);
-                    lista_espera.add(aux_espera);//la añado a la lista de espera
+                evento.fal = aux * (-1);//seteo cuantos faltaron
+
+                if (aux_orden==null){//no hay orden, genero una
+                    nro_ordenes++;
+                    evento.nro_orden =nro_ordenes;
+                    evento.nro_ale_tent = generarAleatorio(rnd);
+                    evento.tent = probabilidades.obtenerNumeroTEntrega(evento.nro_ale_tent).intValue();
+                    aux_orden = new AuxOrdenEntrega(evento.nro_orden,evento.tent,evento.dia);     
                 }
+                //genero una espera...
+                evento.nro_ale_tesp = generarAleatorio(rnd);
+                evento.tesp = probabilidades.obtenerNumeroTEspera(evento.nro_ale_tesp).intValue();
+                aux_espera = new AuxEspera(evento.tesp,evento.fal,evento.dia,true);
+                lista_espera.add(aux_espera);//la añado a la lista de espera
             }
             else {// si el inventario no llego a 0
                 evento.invf = aux;
@@ -132,8 +130,11 @@ public class Simulacion{
         System.out.println("a ver:" + costo_faltante);
         System.out.println("costo_promedio_diario " + costo_promedio_diario * (poli.getCosto_inventario()/dias));*/
         //System.out.println("vamos a ver q es lo tuyo " + (costo_promedio_diario * (poli.getCosto_inventario()/dias)));
+       /* if (poli.getQ() == 311 && poli.getR() == 134){
+            System.out.println("costo_orden: ->" + (nro_ordenes*poli.getCosto_orden()) + "costo faltante: "+costo_faltante+ "costo_promedio: "+ (costo_promedio_diario * (poli.getCosto_inventario()/dias)));
+        }*/
         costo_total = (nro_ordenes*poli.getCosto_orden()) + costo_faltante + (costo_promedio_diario * (poli.getCosto_inventario()/dias));
-    //    System.out.println("Costo total con q:" +this.poli.getQ() + " y R:"+poli.getR() + "  -> "+costo_total);
+     //   System.out.println("Costo total con q:" +this.poli.getQ() + " y R:"+poli.getR() + "  -> "+costo_total);
         //verificar que llegue una orden 
         //eliminar faltantes que dejaron de esperar
         //satisfacer faltantes
