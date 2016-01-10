@@ -19,7 +19,12 @@ public class simulacionInterfaz extends javax.swing.JFrame {
      * Creates new form simulacionInterfaz
      */
     
-    
+    public simulacionInterfaz() {
+        initComponents();
+     //   this.tabla_eventos=tabla_eventos;
+      // jTable1.setModel(tabla_eventos);
+ 
+    }
     public simulacionInterfaz(ArrayList<Eventos> tabla_eventos) {
         initComponents();
      //   this.tabla_eventos=tabla_eventos;
@@ -607,7 +612,7 @@ public class simulacionInterfaz extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(936, 936, 936))
             .addGroup(layout.createSequentialGroup()
-                .addGap(222, 222, 222)
+                .addGap(1068, 1068, 1068)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -618,9 +623,9 @@ public class simulacionInterfaz extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(41, 41, 41)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1014, Short.MAX_VALUE))
+                .addContainerGap(1012, Short.MAX_VALUE))
         );
 
         pack();
@@ -629,14 +634,14 @@ public class simulacionInterfaz extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
- /*   public static void main(String args[]) {
+   public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new simulacionInterfaz().setVisible(true);
             }
         });
-    } */
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

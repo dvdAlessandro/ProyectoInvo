@@ -408,11 +408,13 @@
                               <Component id="jTextField15" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField38" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jTextField37" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jTextField39" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTextField36" alignment="1" min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jTextField38" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="jTextField37" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                                  <Component id="jTextField39" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">

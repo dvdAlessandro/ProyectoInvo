@@ -23,7 +23,7 @@ public class Interfaz extends javax.swing.JFrame {
         Double c_ord;
         Double c_f_espera;
         Double c_f_s_espera;
-        int inv_inicial;
+        Integer inv_inicial;
 
     public Double[][] getDemanda_d() {
         return demanda_d;
@@ -486,11 +486,12 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField36, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1367,9 +1368,13 @@ public class Interfaz extends javax.swing.JFrame {
             
             
             poliopt.imprimirTabla();
-            
-          simulacionInterfaz r = new simulacionInterfaz(poliopt.getTabla_eventos());
-          r.setVisible(true);
+             java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new simulacionInterfaz().setVisible(true);
+            }
+        });
+         /* simulacionInterfaz r = new simulacionInterfaz();
+          r.setVisible(true);*/
         
         
 
@@ -1900,9 +1905,113 @@ public class Interfaz extends javax.swing.JFrame {
                 pi= a.leerPolitica();
                 p=a.leerProbabilidades();
                   DecimalFormat df = new DecimalFormat("0.00");
-               
-                jTextField1.setText(demanda_d[0][0].toString());
+                demanda_d=p.getDemanda_diaria();
+                t_entrega=p.getTiempo_entrega();
+                t_espera=p.getTiempo_espera();
                 
+                 c_inv=pi.getCosto_inventario();
+                 c_ord=pi.getCosto_orden();
+                 c_f_espera=pi.getCosto_con_espera();
+                 c_f_s_espera=pi.getCosto_sin_espera();
+                 inv_inicial=pi.getInventario_inicial();
+                 
+                 
+            
+                
+                jTextField1.setText(demanda_d[0][0].toString());
+                jTextField10.setText(demanda_d[0][1].toString());
+                jTextField2.setText(demanda_d[0][2].toString());
+                jTextField3.setText(demanda_d[0][3].toString());
+                jTextField11.setText(demanda_d[0][4].toString());
+                jTextField12.setText(demanda_d[0][5].toString());
+                jTextField13.setText(demanda_d[0][6].toString());
+                jTextField14.setText(demanda_d[0][7].toString());
+                jTextField17.setText(demanda_d[0][8].toString());
+                jTextField16.setText(demanda_d[0][9].toString());
+                
+                
+                
+                
+                /*   // DemandaDiaria
+                
+                demanda_d[0][0]= Double.parseDouble(jTextField1.getText());
+                
+                demanda_d[0][1]= Double.parseDouble(jTextField10.getText());
+                
+                demanda_d[0][2]= Double.parseDouble(jTextField2.getText());
+                
+                demanda_d[0][3]= Double.parseDouble(jTextField3.getText());
+                
+                demanda_d[0][4]= Double.parseDouble(jTextField11.getText());
+                
+                demanda_d[0][5]= Double.parseDouble(jTextField12.getText());
+                
+                demanda_d[0][6]= Double.parseDouble(jTextField13.getText());
+                
+                demanda_d[0][7]= Double.parseDouble(jTextField14.getText());
+                
+                demanda_d[0][8]= Double.parseDouble(jTextField17.getText());
+                
+                demanda_d[0][9]= Double.parseDouble(jTextField16.getText());
+                */
+                
+                
+                // ProbabilidadDemandaDiaria
+                
+                   jTextField22.setText(demanda_d[1][0].toString());
+                   jTextField23.setText(demanda_d[1][1].toString());
+                   jTextField20.setText(demanda_d[1][2].toString());
+                   jTextField21.setText(demanda_d[1][3].toString());
+                   jTextField24.setText(demanda_d[1][4].toString());
+                   jTextField25.setText(demanda_d[1][5].toString());
+                   jTextField26.setText(demanda_d[1][6].toString());
+                   jTextField27.setText(demanda_d[1][7].toString());
+                   jTextField19.setText(demanda_d[1][8].toString());
+                   jTextField18.setText(demanda_d[1][9].toString());
+                   
+               
+                
+                //TiempoDeEntrega
+                
+                jTextField4.setText(t_entrega[0][0].toString());
+                jTextField15.setText(t_entrega[0][1].toString());
+                jTextField5.setText(t_entrega[0][2].toString());
+                jTextField6.setText(t_entrega[0][3].toString());
+                
+                
+               
+                //ProbabilidadTiempoEntrega
+                jTextField38.setText(t_entrega[1][0].toString());
+                jTextField39.setText(t_entrega[1][1].toString());
+                jTextField36.setText(t_entrega[1][2].toString());
+                jTextField37.setText(t_entrega[1][3].toString());
+               
+                
+                
+                //TiempoDeEsperaClientes
+                
+                jTextField7.setText(t_espera[0][0].toString());
+                jTextField44.setText(t_espera[0][1].toString());
+                jTextField8.setText(t_espera[0][2].toString());
+                jTextField9.setText(t_espera[0][3].toString());
+                jTextField45.setText(t_espera[0][4].toString());
+                
+               
+                jTextField55.setText(t_espera[1][0].toString());
+                jTextField56.setText(t_espera[1][1].toString());
+                jTextField53.setText(t_espera[1][2].toString());
+                jTextField54.setText(t_espera[1][3].toString());
+                jTextField57.setText(t_espera[1][4].toString());
+                
+                
+                jTextField30.setText(c_inv.toString());
+                jTextField31.setText(c_ord.toString());
+                jTextField32.setText(c_f_espera.toString());
+                jTextField33.setText(c_f_s_espera.toString());
+                jTextField34.setText(inv_inicial.toString());
+                
+                
+            
                 
             } catch (IOException ex) {
                 Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
