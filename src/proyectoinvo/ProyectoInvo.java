@@ -71,14 +71,12 @@ public class ProyectoInvo {
         tesp[1][4] = 0.1;
                 
         Probabilidades p = new Probabilidades();
-<<<<<<< HEAD
-        //Interfaz I = new  Interfaz ();
-        //I.setVisible(true);
-=======
-       /* Interfaz I = new  Interfaz ();
+
+        Interfaz I = new  Interfaz ();
         I.setVisible(true);
+
         
->>>>>>> origin/master
+
         
        //System.out.println(I.demanda_d[0][1]);
        // 
@@ -100,7 +98,7 @@ public class ProyectoInvo {
                tesp[i][j]=I.t_espera[i][j];
            } 
          }
-<<<<<<< HEAD
+
         
          
          */
@@ -127,9 +125,7 @@ public class ProyectoInvo {
          
          */
          
-=======
-        */
->>>>>>> origin/master
+
         
         
       
