@@ -130,11 +130,16 @@ public class Simulacion{
         System.out.println("a ver:" + costo_faltante);
         System.out.println("costo_promedio_diario " + costo_promedio_diario * (poli.getCosto_inventario()/dias));*/
         //System.out.println("vamos a ver q es lo tuyo " + (costo_promedio_diario * (poli.getCosto_inventario()/dias)));
-       /* if (poli.getQ() == 311 && poli.getR() == 134){
+      /*  if (poli.getQ() == 311 && poli.getR() == 134){
             System.out.println("costo_orden: ->" + (nro_ordenes*poli.getCosto_orden()) + "costo faltante: "+costo_faltante+ "costo_promedio: "+ (costo_promedio_diario * (poli.getCosto_inventario()/dias)));
         }*/
         costo_total = (nro_ordenes*poli.getCosto_orden()) + costo_faltante + (costo_promedio_diario * (poli.getCosto_inventario()/dias));
-     //   System.out.println("Costo total con q:" +this.poli.getQ() + " y R:"+poli.getR() + "  -> "+costo_total);
+        
+       /* if (poli.getQ() == 311 && poli.getR() == 134){
+            System.out.println("poliopt: q=" +poli.getQ() + "  r=" + poli.getR() );
+            System.out.println("costo_orden: ->   " + (nro_ordenes*poli.getCosto_orden()) + "  costo faltante: "+costo_faltante+ "   costo_promedio: "+ (costo_promedio_diario * (poli.getCosto_inventario()/dias)));
+        }*/
+      // System.out.println("Costo total con q:" +this.poli.getQ() + " y R:"+poli.getR() + "  -> "+costo_total);
         //verificar que llegue una orden 
         //eliminar faltantes que dejaron de esperar
         //satisfacer faltantes

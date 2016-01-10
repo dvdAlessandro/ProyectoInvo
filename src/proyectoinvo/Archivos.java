@@ -19,6 +19,7 @@ public class Archivos {
     private String archivoProb = "probabilidades.obj";
     private String archivoPoli = "politicas.obj";
     
+    
     public Archivos(){
         
     }
