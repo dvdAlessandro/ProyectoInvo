@@ -38,13 +38,13 @@ public class Archivos {
     }
     
      public void escribirPolitica(PoliticaInventario p) throws IOException{
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivoProb,false));
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivoPoli,false));
         oos.writeObject(p);
         oos.close();  // Se cierra al terminar
     }
     
     public PoliticaInventario leerPolitica() throws IOException, ClassNotFoundException{
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivoProb));
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivoPoli));
         Object p = ois.readObject();
         ois.close();
         

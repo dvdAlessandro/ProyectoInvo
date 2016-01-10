@@ -71,34 +71,58 @@ public class ProyectoInvo {
         tesp[1][4] = 0.1;
                 
         Probabilidades p = new Probabilidades();
-        Interfaz I = new  Interfaz ();
-        I.setVisible(true);
+        //Interfaz I = new  Interfaz ();
+        //I.setVisible(true);
         
-        
+       //System.out.println(I.demanda_d[0][1]);
+       // 
+       /*
          for (int i =0 ; i <= 1 ; i++){
-           for (int j =0 ; j <= 9 ; i++){ 
+           for (int j =0 ; j <= 9 ; j++){ 
                d[i][j]=I.demanda_d[i][j];
            } 
          }
          
          for (int i =0 ; i <= 1 ; i++){
-           for (int j =0 ; j <= 3 ; i++){ 
-               d[i][j]=I.demanda_d[i][j];
+           for (int j =0 ; j <= 3 ; j++){ 
+              tent[i][j]=I.t_entrega[i][j];
            } 
          }
          
          for (int i =0 ; i <= 1 ; i++){
-           for (int j =0 ; j <= 4 ; i++){ 
-               d[i][j]=I.demanda_d[i][j];
+           for (int j =0 ; j <= 4 ; j++){ 
+               tesp[i][j]=I.t_espera[i][j];
            } 
          }
         
+         
+         */
+         
+         /*
+         for (int i =0 ; i <= 1 ; i++){
+           for (int j =0 ; j <= 9 ; j++){ 
+              System.out.println( d[i][j]);
+           } 
+         }
+         
+         for (int i =0 ; i <= 1 ; i++){
+           for (int j =0 ; j <= 3 ; j++){ 
+             System.out.println( tent[i][j]);
+           } 
+         }
+         
+         for (int i =0 ; i <= 1 ; i++){
+           for (int j =0 ; j <= 4 ; j++){ 
+              System.out.println( tesp[i][j]);
+           } 
+         }
+         
+         
+         */
+         
         
         
-        
-        
-        
-        
+      
         
         p.setDemanda(d);
         p.setTiempoEntrega(tent);

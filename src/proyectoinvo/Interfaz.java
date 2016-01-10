@@ -5,6 +5,11 @@
  */
 package proyectoinvo;
 
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author David
@@ -19,12 +24,82 @@ public class Interfaz extends javax.swing.JFrame {
         Double c_f_espera;
         Double c_f_s_espera;
         int inv_inicial;
+
+    public Double[][] getDemanda_d() {
+        return demanda_d;
+    }
+
+    public Double[][] getT_entrega() {
+        return t_entrega;
+    }
+
+    public Double[][] getT_espera() {
+        return t_espera;
+    }
+
+    public Double getC_inv() {
+        return c_inv;
+    }
+
+    public Double getC_ord() {
+        return c_ord;
+    }
+
+    public Double getC_f_espera() {
+        return c_f_espera;
+    }
+
+    public Double getC_f_s_espera() {
+        return c_f_s_espera;
+    }
+
+    public int getInv_inicial() {
+        return inv_inicial;
+    }
+
+    public void setDemanda_d(Double[][] demanda_d) {
+        this.demanda_d = demanda_d;
+    }
+
+    public void setT_entrega(Double[][] t_entrega) {
+        this.t_entrega = t_entrega;
+    }
+
+    public void setT_espera(Double[][] t_espera) {
+        this.t_espera = t_espera;
+    }
+
+    public void setC_inv(Double c_inv) {
+        this.c_inv = c_inv;
+    }
+
+    public void setC_ord(Double c_ord) {
+        this.c_ord = c_ord;
+    }
+
+    public void setC_f_espera(Double c_f_espera) {
+        this.c_f_espera = c_f_espera;
+    }
+
+    public void setC_f_s_espera(Double c_f_s_espera) {
+        this.c_f_s_espera = c_f_s_espera;
+    }
+
+    public void setInv_inicial(int inv_inicial) {
+        this.inv_inicial = inv_inicial;
+    }
+
+ 
+ 
+        
+        
+        
     /**
      * Creates new form NewJFrame
      */
     public Interfaz() {
         initComponents();
-        
+  
     }
 
     /**
@@ -117,6 +192,8 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField34 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -129,15 +206,39 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField12ActionPerformed(evt);
             }
         });
 
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+
+        jTextField19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField19ActionPerformed(evt);
+            }
+        });
+
         jTextField22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField22ActionPerformed(evt);
+            }
+        });
+
+        jTextField24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField24ActionPerformed(evt);
             }
         });
 
@@ -215,9 +316,9 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,6 +385,12 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
+            }
+        });
+
+        jTextField36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField36ActionPerformed(evt);
             }
         });
 
@@ -381,9 +488,9 @@ public class Interfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField38, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextField39, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,6 +503,24 @@ public class Interfaz extends javax.swing.JFrame {
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
+            }
+        });
+
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+
+        jTextField44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField44ActionPerformed(evt);
+            }
+        });
+
+        jTextField54.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField54ActionPerformed(evt);
             }
         });
 
@@ -743,23 +868,42 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("leer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(635, 635, 635))
             .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(96, 96, 96)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(140, 140, 140)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(213, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -773,9 +917,16 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -819,77 +970,957 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
+        /*
+          int i,j,i1,j1,i2,j2;
+         for (  i=0 ; i<= 1 ; i++){
+           for ( j=0 ;j <= 9 ; i++){ 
+               demanda_d[i][j]=0.0;
+           } 
+         }
+         
+          for (  i1=0 ; i1<= 1 ; i1++){
+           for ( j1=0 ;j1 <= 3 ; j1++){ 
+               t_entrega[i1][j1]=0.0;
+           } 
+         }
+           
+          for (  i2=0 ; i2<= 1 ; i2++){
+           for ( j2=0 ;j2 <= 4 ; j2++){ 
+               t_espera[i2][j2]=0.0;
+           } 
+         }
+        */ 
+        
         // DemandaDiaria
-        demanda_d[0][0]= Double.parseDouble(jTextField1.getText()); 
-        demanda_d[0][1]= Double.parseDouble(jTextField10.getText()); 
-        demanda_d[0][2]= Double.parseDouble(jTextField2.getText()); 
-        demanda_d[0][3]= Double.parseDouble(jTextField3.getText()); 
-        demanda_d[0][4]= Double.parseDouble(jTextField11.getText()); 
-        demanda_d[0][5]= Double.parseDouble(jTextField12.getText()); 
-        demanda_d[0][6]= Double.parseDouble(jTextField13.getText()); 
-        demanda_d[0][7]= Double.parseDouble(jTextField14.getText()); 
-        demanda_d[0][8]= Double.parseDouble(jTextField17.getText());
-        demanda_d[0][9]= Double.parseDouble(jTextField16.getText()); 
+        if(jTextField1.getText().length()==0){
+           demanda_d[0][0]=0.0; 
+        } 
+        else{
+            demanda_d[0][0]= Double.parseDouble(jTextField1.getText()); 
+        }
+        
+         if(jTextField10.getText().length()==0){
+           demanda_d[0][1]=0.0; 
+        } 
+        else{
+            demanda_d[0][1]= Double.parseDouble(jTextField10.getText()); 
+        }
+        
+        if(jTextField2.getText().length()==0){
+           demanda_d[0][2]=0.0; 
+        } 
+        else{
+             demanda_d[0][2]= Double.parseDouble(jTextField2.getText());
+        }
+        
+         if(jTextField3.getText().length()==0){
+           demanda_d[0][3]=0.0; 
+        } 
+        else{
+             demanda_d[0][3]= Double.parseDouble(jTextField3.getText());
+        }
+    
+           if(jTextField11.getText().length()==0){
+           demanda_d[0][4]=0.0; 
+        } 
+        else{
+             demanda_d[0][4]= Double.parseDouble(jTextField11.getText());
+        }
+       
+       
+               if(jTextField12.getText().length()==0){
+           demanda_d[0][5]=0.0; 
+        } 
+        else{
+             demanda_d[0][5]= Double.parseDouble(jTextField12.getText());
+        }
+               
+       if(jTextField13.getText().length()==0){
+           demanda_d[0][6]=0.0; 
+        } 
+        else{
+             demanda_d[0][6]= Double.parseDouble(jTextField13.getText());
+        }
+       
+         
+        if(jTextField14.getText().length()==0){
+           demanda_d[0][7]=0.0; 
+        } 
+        else{
+             demanda_d[0][7]= Double.parseDouble(jTextField14.getText());
+        }        
+        
+        if(jTextField17.getText().length()==0){
+           demanda_d[0][8]=0.0; 
+        } 
+        else{
+             demanda_d[0][8]= Double.parseDouble(jTextField17.getText());
+        }       
+        
+        
+       if(jTextField16.getText().length()==0){
+           demanda_d[0][9]=0.0; 
+        } 
+        else{
+             demanda_d[0][9]= Double.parseDouble(jTextField16.getText());
+        }
+       
         
         // ProbabilidadDemandaDiaria
-        demanda_d[1][0]= Double.parseDouble(jTextField22.getText()); 
-        demanda_d[1][1]= Double.parseDouble(jTextField23.getText()); 
-        demanda_d[1][2]= Double.parseDouble(jTextField20.getText()); 
-        demanda_d[1][3]= Double.parseDouble(jTextField21.getText()); 
-        demanda_d[1][4]= Double.parseDouble(jTextField24.getText()); 
-        demanda_d[1][5]= Double.parseDouble(jTextField25.getText()); 
-        demanda_d[1][6]= Double.parseDouble(jTextField26.getText()); 
-        demanda_d[1][7]= Double.parseDouble(jTextField27.getText()); 
-        demanda_d[1][8]= Double.parseDouble(jTextField19.getText());
-        demanda_d[1][9]= Double.parseDouble(jTextField18.getText()); 
+        
+  if(jTextField22.getText().length()==0){
+           demanda_d[1][0]=0.0; 
+        } 
+        else{
+             demanda_d[1][0]= Double.parseDouble(jTextField22.getText());
+        }       
+        
+   if(jTextField23.getText().length()==0){
+           demanda_d[1][1]=0.0; 
+        } 
+        else{
+             demanda_d[1][1]= Double.parseDouble(jTextField23.getText());
+        }       
+         
+   
+   if(jTextField20.getText().length()==0){
+           demanda_d[1][2]=0.0; 
+        } 
+        else{
+             demanda_d[1][2]= Double.parseDouble(jTextField20.getText());
+        }       
+               
+        
+  if(jTextField21.getText().length()==0){
+           demanda_d[1][3]=0.0; 
+        } 
+        else{
+             demanda_d[1][3]= Double.parseDouble(jTextField21.getText());
+        }       
+        
+  if(jTextField24.getText().length()==0){
+           demanda_d[1][4]=0.0; 
+        } 
+        else{
+             demanda_d[1][4]= Double.parseDouble(jTextField24.getText());
+        }       
+        
+   if(jTextField25.getText().length()==0){
+           demanda_d[1][5]=0.0; 
+        } 
+        else{
+             demanda_d[1][5]= Double.parseDouble(jTextField25.getText());
+        }       
+                
+  if(jTextField26.getText().length()==0){
+           demanda_d[1][6]=0.0; 
+        } 
+        else{
+             demanda_d[1][6]= Double.parseDouble(jTextField26.getText());
+        }       
+  
+    if(jTextField27.getText().length()==0){
+           demanda_d[1][7]=0.0; 
+        } 
+        else{
+             demanda_d[1][7]= Double.parseDouble(jTextField27.getText());
+        }       
+        
+  if(jTextField19.getText().length()==0){
+           demanda_d[1][8]=0.0; 
+        } 
+        else{
+             demanda_d[1][8]= Double.parseDouble(jTextField19.getText());
+        }       
+        
+  if(jTextField18.getText().length()==0){
+           demanda_d[1][9]=0.0; 
+        } 
+        else{
+             demanda_d[1][9]= Double.parseDouble(jTextField18.getText());
+        }       
+        
+
         
         //TiempoDeEntrega
-        t_entrega[0][0]= Double.parseDouble(jTextField4.getText()); 
-        t_entrega[0][1]= Double.parseDouble(jTextField15.getText()); 
-        t_entrega[0][2]= Double.parseDouble(jTextField5.getText()); 
-        t_entrega[0][3]= Double.parseDouble(jTextField6.getText()); 
+        
+  if(jTextField4.getText().length()==0){
+           t_entrega[0][0]=0.0; 
+        } 
+        else{
+             t_entrega[0][0]= Double.parseDouble(jTextField4.getText());
+        }       
+               
+  if(jTextField15.getText().length()==0){
+           t_entrega[0][1]=0.0; 
+        } 
+        else{
+             t_entrega[0][1]= Double.parseDouble(jTextField15.getText());
+        }       
+            
+  
+    if(jTextField5.getText().length()==0){
+           t_entrega[0][2]=0.0; 
+        } 
+        else{
+             t_entrega[0][2]= Double.parseDouble(jTextField5.getText());
+        }       
+    
+  if(jTextField6.getText().length()==0){
+           t_entrega[0][3]=0.0; 
+        } 
+        else{
+             t_entrega[0][3]= Double.parseDouble(jTextField6.getText());
+        }       
+                
+
                 
         //ProbabilidadTiempoEntrega
-        t_entrega[1][0]= Double.parseDouble(jTextField38.getText()); 
-        t_entrega[1][1]= Double.parseDouble(jTextField39.getText()); 
-        t_entrega[1][2]= Double.parseDouble(jTextField36.getText()); 
-        t_entrega[1][3]= Double.parseDouble(jTextField37.getText()); 
+        
+  if(jTextField38.getText().length()==0){
+           t_entrega[1][0]=0.0; 
+        } 
+        else{
+             t_entrega[1][0]= Double.parseDouble(jTextField38.getText());
+        }       
+                    
+        
+   if(jTextField39.getText().length()==0){
+           t_entrega[1][1]=0.0; 
+        } 
+        else{
+             t_entrega[1][1]= Double.parseDouble(jTextField39.getText());
+        }       
+          
+  if(jTextField36.getText().length()==0){
+           t_entrega[1][2]=0.0; 
+        } 
+        else{
+             t_entrega[1][2]= Double.parseDouble(jTextField36.getText());
+        }       
+             
+   if(jTextField37.getText().length()==0){
+           t_entrega[1][3]=0.0; 
+        } 
+        else{
+             t_entrega[1][3]= Double.parseDouble(jTextField37.getText());
+        }       
+                   
+
         
         //TiempoDeEsperaClientes
-        t_espera[0][0]=Double.parseDouble(jTextField7.getText()); 
-        t_espera[0][1]=Double.parseDouble(jTextField4.getText()); 
-        t_espera[0][2]=Double.parseDouble(jTextField8.getText()); 
-        t_espera[0][3]=Double.parseDouble(jTextField9.getText()); 
-        t_espera[0][4]=Double.parseDouble(jTextField45.getText()); 
+        
+  if(jTextField7.getText().length()==0){
+           t_espera[0][0]=0.0; 
+        } 
+        else{
+             t_espera[0][0]= Double.parseDouble(jTextField7.getText());
+        }       
+                          
+   if(jTextField44.getText().length()==0){
+           t_espera[0][1]=0.0; 
+        } 
+        else{
+             t_espera[0][1]= Double.parseDouble(jTextField44.getText());
+        }       
+              
+   if(jTextField8.getText().length()==0){
+           t_espera[0][2]=0.0; 
+        } 
+        else{
+             t_espera[0][2]= Double.parseDouble(jTextField8.getText());
+        }       
+             
+   
+  if(jTextField9.getText().length()==0){
+           t_espera[0][3]=0.0; 
+        } 
+        else{
+             t_espera[0][3]= Double.parseDouble(jTextField9.getText());
+        }       
+         
+  if(jTextField45.getText().length()==0){
+           t_espera[0][4]=0.0; 
+        } 
+        else{
+             t_espera[0][4]= Double.parseDouble(jTextField45.getText());
+        }       
+              
+       
         
         //ProbabilidadTiempoEsperaClientes
-        t_espera[1][0]=Double.parseDouble(jTextField55.getText()); 
-        t_espera[1][1]=Double.parseDouble(jTextField56.getText()); 
-        t_espera[1][2]=Double.parseDouble(jTextField53.getText()); 
-        t_espera[1][3]=Double.parseDouble(jTextField54.getText()); 
-        t_espera[1][4]=Double.parseDouble(jTextField57.getText()); 
+        
+  if(jTextField55.getText().length()==0){
+           t_espera[1][0]=0.0; 
+        } 
+        else{
+             t_espera[1][0]= Double.parseDouble(jTextField55.getText());
+        }       
+                   
+  
+  
+    if(jTextField56.getText().length()==0){
+           t_espera[1][1]=0.0; 
+        } 
+        else{
+             t_espera[1][1]= Double.parseDouble(jTextField56.getText());
+        }       
+       
+    if(jTextField53.getText().length()==0){
+           t_espera[1][2]=0.0; 
+        } 
+        else{
+             t_espera[1][2]= Double.parseDouble(jTextField53.getText());
+        }   
+
+    if(jTextField54.getText().length()==0){
+           t_espera[1][3]=0.0; 
+        } 
+        else{
+             t_espera[1][3]= Double.parseDouble(jTextField54.getText());
+        }       
+    
+    if(jTextField57.getText().length()==0){
+           t_espera[1][4]=0.0; 
+        } 
+        else{
+             t_espera[1][4]= Double.parseDouble(jTextField57.getText());
+        }       
+ 
         
         // 
-         c_inv=Double.parseDouble(jTextField30.getText()); 
-         c_ord=Double.parseDouble(jTextField31.getText()); 
-         c_f_espera=Double.parseDouble(jTextField32.getText()); 
-         c_f_s_espera=Double.parseDouble(jTextField33.getText()); 
-         inv_inicial=Integer.parseInt(jTextField34.getText()); 
         
-        
-        
-        System.out.println(demanda_d[0][1]);
+            if(jTextField30.getText().length()==0){
+           c_inv=0.0; 
+        } 
+        else{
+            c_inv=Double.parseDouble(jTextField30.getText());
+        }   
+            
+       if(jTextField31.getText().length()==0){
+           c_ord=0.0; 
+        } 
+        else{
+             c_ord=Double.parseDouble(jTextField31.getText());
+        }   
 
-
+       
+       if(jTextField32.getText().length()==0){
+           c_f_espera=0.0; 
+        } 
+        else{
+            c_f_espera=Double.parseDouble(jTextField32.getText()); 
+        }          
+        
+       if(jTextField33.getText().length()==0){
+            c_f_s_espera=0.0; 
+        } 
+        else{
+           c_f_s_espera=Double.parseDouble(jTextField33.getText()); 
+        }        
+         
+       if(jTextField34.getText().length()==0){
+            inv_inicial=0; 
+        } 
+        else{
+          inv_inicial=Integer.parseInt(jTextField34.getText()); 
+        }       
+     
         
         
         
+      //  System.out.println("fgrtgtrbtb"+demanda_d[0][1]);
+        Probabilidades p = new Probabilidades();
+        p.setDemanda(demanda_d);
+        p.setTiempoEntrega(t_entrega);
+        p.setTiempoEspera(t_espera);
         
+        PoliticaInventario poli = new PoliticaInventario(c_inv, c_ord,c_f_espera, c_f_s_espera, inv_inicial);
+            Intervalo i = new Intervalo(poli.getCosto_inventario(),poli.getCosto_orden(),poli.getCosto_con_espera(),poli.getCosto_sin_espera(),p,365);
+            Double Qmin,Qmax,Rmin,Rmax;
+            Qmin =  Math.rint((100*(i.getQmin()))/100);
+            Qmax = Math.rint((100*(i.getQmax()))/100);
+            Rmin = Math.rint((100*(i.getRmin()))/100);
+            Rmax = Math.rint((100*(i.getRmax()))/100);
+           /* System.out.println("Qmin: " + Qmin);
+            System.out.println("Qmax: " + Qmax);
+            System.out.println("Rmin: " + Rmin);
+            System.out.println("Rmax: " + Rmax);*/
+            PoliticaInventario poliopt = null;
+            Double costo_menor=9999999999999999999999999999999999999999999999.0;
+            for (int q = Qmin.intValue() ; q <= Qmax.intValue() ; q++){
+                for (int r = Rmin.intValue() ; r<= Rmax.intValue() ;r++){
+                    poli = new PoliticaInventario(c_inv, c_ord,c_f_espera, c_f_s_espera, inv_inicial);
+                    poli.setQ(q);
+                    poli.setR(r);
+                    Simulacion s = new Simulacion (poli,p);
+                    s.run();
+                    if (s.getCostoTotal() < costo_menor){
+                        costo_menor = s.getCostoTotal();
+                        poliopt = poli;
+                    }
+                }
+            }
+            
+            System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "costo: "+ costo_menor );
+            
+            
+            
+            poliopt.imprimirTabla();
+            
+          simulacionInterfaz r = new simulacionInterfaz(poliopt.getTabla_eventos());
+          r.setVisible(true);
         
         
 
     
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField24ActionPerformed
+
+    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField19ActionPerformed
+
+    private void jTextField36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField36ActionPerformed
+
+    private void jTextField44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField44ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField44ActionPerformed
+
+    private void jTextField54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField54ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField54ActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+            try {
+             /*   // DemandaDiaria
+                
+                demanda_d[0][0]= Double.parseDouble(jTextField1.getText());
+                
+                demanda_d[0][1]= Double.parseDouble(jTextField10.getText());
+                
+                demanda_d[0][2]= Double.parseDouble(jTextField2.getText());
+                
+                demanda_d[0][3]= Double.parseDouble(jTextField3.getText());
+                
+                demanda_d[0][4]= Double.parseDouble(jTextField11.getText());
+                
+                demanda_d[0][5]= Double.parseDouble(jTextField12.getText());
+                
+                demanda_d[0][6]= Double.parseDouble(jTextField13.getText());
+                
+                demanda_d[0][7]= Double.parseDouble(jTextField14.getText());
+                
+                demanda_d[0][8]= Double.parseDouble(jTextField17.getText());
+                
+                demanda_d[0][9]= Double.parseDouble(jTextField16.getText());
+                
+                
+                
+                // ProbabilidadDemandaDiaria
+                
+                demanda_d[1][0]= Double.parseDouble(jTextField22.getText());
+                
+                demanda_d[1][1]= Double.parseDouble(jTextField23.getText());
+                
+                demanda_d[1][2]= Double.parseDouble(jTextField20.getText());
+                
+                demanda_d[1][3]= Double.parseDouble(jTextField21.getText());
+                
+                demanda_d[1][4]= Double.parseDouble(jTextField24.getText());
+                
+                demanda_d[1][5]= Double.parseDouble(jTextField25.getText());
+                
+                demanda_d[1][6]= Double.parseDouble(jTextField26.getText());
+                
+                demanda_d[1][7]= Double.parseDouble(jTextField27.getText());
+                
+                demanda_d[1][8]= Double.parseDouble(jTextField19.getText());
+                
+                demanda_d[1][9]= Double.parseDouble(jTextField18.getText());
+                
+                
+                
+                
+                //TiempoDeEntrega
+                
+                
+                t_entrega[0][0]= Double.parseDouble(jTextField4.getText());
+                
+                t_entrega[0][1]= Double.parseDouble(jTextField15.getText());
+                
+                t_entrega[0][2]= Double.parseDouble(jTextField5.getText());
+                
+                t_entrega[0][3]= Double.parseDouble(jTextField6.getText());
+                
+                
+                
+                
+                //ProbabilidadTiempoEntrega
+                
+                
+                t_entrega[1][0]= Double.parseDouble(jTextField38.getText());
+                
+                t_entrega[1][1]= Double.parseDouble(jTextField39.getText());
+                
+                t_entrega[1][2]= Double.parseDouble(jTextField36.getText());
+                
+                t_entrega[1][3]= Double.parseDouble(jTextField37.getText());
+                
+                
+                
+                
+                //TiempoDeEsperaClientes
+                
+                t_espera[0][0]= Double.parseDouble(jTextField7.getText());
+                
+                t_espera[0][1]= Double.parseDouble(jTextField44.getText());
+                
+                t_espera[0][2]= Double.parseDouble(jTextField8.getText());
+                
+                t_espera[0][3]= Double.parseDouble(jTextField9.getText());
+                
+                t_espera[0][4]= Double.parseDouble(jTextField45.getText());
+                
+                
+                
+                
+                //ProbabilidadTiempoEsperaClientes
+                
+                
+                t_espera[1][0]= Double.parseDouble(jTextField55.getText());
+                
+                t_espera[1][1]= Double.parseDouble(jTextField56.getText());
+                
+                t_espera[1][2]= Double.parseDouble(jTextField53.getText());
+                
+                t_espera[1][3]= Double.parseDouble(jTextField54.getText());
+                
+                t_espera[1][4]= Double.parseDouble(jTextField57.getText());
+                
+                
+                //
+                
+                
+                c_inv=Double.parseDouble(jTextField30.getText());
+                
+                c_ord=Double.parseDouble(jTextField31.getText());
+                
+                c_f_espera=Double.parseDouble(jTextField32.getText());
+                
+                c_f_s_espera=Double.parseDouble(jTextField33.getText());
+                
+                inv_inicial=Integer.parseInt(jTextField34.getText());
+               */
+             
+              // DemandaDiaria
+        if(jTextField1.getText().length()==0){
+           demanda_d[0][0]=0.0; 
+        } 
+        else{
+            demanda_d[0][0]= Double.parseDouble(jTextField1.getText()); 
+        }
+        
+         if(jTextField10.getText().length()==0){
+           demanda_d[0][1]=0.0; 
+        } 
+        else{
+            demanda_d[0][1]= Double.parseDouble(jTextField10.getText()); 
+        }
+        
+        if(jTextField2.getText().length()==0){
+           demanda_d[0][2]=0.0; 
+        } 
+        else{
+             demanda_d[0][2]= Double.parseDouble(jTextField2.getText());
+        }
+        
+         if(jTextField3.getText().length()==0){
+           demanda_d[0][3]=0.0; 
+        } 
+        else{
+             demanda_d[0][3]= Double.parseDouble(jTextField3.getText());
+        }
+    
+           if(jTextField11.getText().length()==0){
+           demanda_d[0][4]=0.0; 
+        } 
+        else{
+             demanda_d[0][4]= Double.parseDouble(jTextField11.getText());
+        }
+       
+       
+               if(jTextField12.getText().length()==0){
+           demanda_d[0][5]=0.0; 
+        } 
+        else{
+             demanda_d[0][5]= Double.parseDouble(jTextField12.getText());
+        }
+               
+       if(jTextField13.getText().length()==0){
+           demanda_d[0][6]=0.0; 
+        } 
+        else{
+             demanda_d[0][6]= Double.parseDouble(jTextField13.getText());
+        }
+       
+         
+        if(jTextField14.getText().length()==0){
+           demanda_d[0][7]=0.0; 
+        } 
+        else{
+             demanda_d[0][7]= Double.parseDouble(jTextField14.getText());
+        }        
+        
+        if(jTextField17.getText().length()==0){
+           demanda_d[0][8]=0.0; 
+        } 
+        else{
+             demanda_d[0][8]= Double.parseDouble(jTextField17.getText());
+        }       
+        
+        
+       if(jTextField16.getText().length()==0){
+           demanda_d[0][9]=0.0; 
+        } 
+        else{
+             demanda_d[0][9]= Double.parseDouble(jTextField16.getText());
+        }
+       
+        
+        // ProbabilidadDemandaDiaria
+        
+  if(jTextField22.getText().length()==0){
+           demanda_d[1][0]=0.0; 
+        } 
+        else{
+             demanda_d[1][0]= Double.parseDouble(jTextField22.getText());
+        }       
+        
+   if(jTextField23.getText().length()==0){
+           demanda_d[1][1]=0.0; 
+        } 
+        else{
+             demanda_d[1][1]= Double.parseDouble(jTextField23.getText());
+        }       
+         
+   
+   if(jTextField20.getText().length()==0){
+           demanda_d[1][2]=0.0; 
+        } 
+        else{
+             demanda_d[1][2]= Double.parseDouble(jTextField20.getText());
+        }       
+               
+        
+  if(jTextField21.getText().length()==0){
+           demanda_d[1][3]=0.0; 
+        } 
+        else{
+             demanda_d[1][3]= Double.parseDouble(jTextField21.getText());
+        }       
+        
+  if(jTextField24.getText().length()==0){
+           demanda_d[1][4]=0.0; 
+        } 
+        else{
+             demanda_d[1][4]= Double.parseDouble(jTextField24.getText());
+        }       
+        
+   if(jTextField25.getText().length()==0){
+           demanda_d[1][5]=0.0; 
+        } 
+        else{
+             demanda_d[1][5]= Double.parseDouble(jTextField25.getText());
+        }       
+                
+  if(jTextField26.getText().length()==0){
+           demanda_d[1][6]=0.0; 
+        } 
+        else{
+             demanda_d[1][6]= Double.parseDouble(jTextField26.getText());
+        }       
+  
+    if(jTextField27.getText().length()==0){
+           demanda_d[1][7]=0.0; 
+        } 
+        else{
+             demanda_d[1][7]= Double.parseDouble(jTextField27.getText());
+        }       
+        
+  if(jTextField19.getText().length()==0){
+           demanda_d[1][8]=0.0; 
+        } 
+        else{
+             demanda_d[1][8]= Double.parseDouble(jTextField19.getText());
+        }       
+        
+  if(jTextField18.getText().length()==0){
+           demanda_d[1][9]=0.0; 
+        } 
+        else{
+             demanda_d[1][9]= Double.parseDouble(jTextField18.getText());
+        }       
+        
+
+        
+        //TiempoDeEntrega
+        
+  if(jTextField4.getText().length()==0){
+           t_entrega[0][0]=0.0; 
+        } 
+        else{
+             t_entrega[0][0]= Double.parseDouble(jTextField4.getText());
+        }       
+               
+  if(jTextField15.getText().length()==0){
+           t_entrega[0][1]=0.0; 
+        } 
+        else{
+             t_entrega[0][1]= Double.parseDouble(jTextField15.getText());
+        }       
+            
+  
+    if(jTextField5.getText().length()==0){
+           t_entrega[0][2]=0.0; 
+        } 
+        else{
+             t_entrega[0][2]= Double.parseDouble(jTextField5.getText());
+        }       
+    
+  if(jTextField6.getText().length()==0){
+           t_entrega[0][3]=0.0; 
+        } 
+        else{
+             t_entrega[0][3]= Double.parseDouble(jTextField6.getText());
+        }       
+                
+
+                
+        //ProbabilidadTiempoEntrega
+        
+  if(jTextField38.getText().length()==0){
+           t_entrega[1][0]=0.0; 
+        } 
+        else{
+             t_entrega[1][0]= Double.parseDouble(jTextField38.getText());
+        }       
+                    
+        
+   if(jTextField39.getText().length()==0){
+           t_entrega[1][1]=0.0; 
+        } 
+        else{
+             t_entrega[1][1]= Double.parseDouble(jTextField39.getText());
+        }       
+          
+  if(jTextField36.getText().length()==0){
+           t_entrega[1][2]=0.0; 
+        } 
+        else{
+             t_entrega[1][2]= Double.parseDouble(jTextField36.getText());
+        }       
+             
+   if(jTextField37.getText().length()==0){
+           t_entrega[1][3]=0.0; 
+        } 
+        else{
+             t_entrega[1][3]= Double.parseDouble(jTextField37.getText());
+        }       
+                   
+
+        
+        //TiempoDeEsperaClientes
+        
+  if(jTextField7.getText().length()==0){
+           t_espera[0][0]=0.0; 
+        } 
+        else{
+             t_espera[0][0]= Double.parseDouble(jTextField7.getText());
+        }       
+                          
+   if(jTextField44.getText().length()==0){
+           t_espera[0][1]=0.0; 
+        } 
+        else{
+             t_espera[0][1]= Double.parseDouble(jTextField44.getText());
+        }       
+              
+   if(jTextField8.getText().length()==0){
+           t_espera[0][2]=0.0; 
+        } 
+        else{
+             t_espera[0][2]= Double.parseDouble(jTextField8.getText());
+        }       
+             
+   
+  if(jTextField9.getText().length()==0){
+           t_espera[0][3]=0.0; 
+        } 
+        else{
+             t_espera[0][3]= Double.parseDouble(jTextField9.getText());
+        }       
+         
+  if(jTextField45.getText().length()==0){
+           t_espera[0][4]=0.0; 
+        } 
+        else{
+             t_espera[0][4]= Double.parseDouble(jTextField45.getText());
+        }       
+              
+       
+        
+        //ProbabilidadTiempoEsperaClientes
+        
+  if(jTextField55.getText().length()==0){
+           t_espera[1][0]=0.0; 
+        } 
+        else{
+             t_espera[1][0]= Double.parseDouble(jTextField55.getText());
+        }       
+                   
+  
+  
+    if(jTextField56.getText().length()==0){
+           t_espera[1][1]=0.0; 
+        } 
+        else{
+             t_espera[1][1]= Double.parseDouble(jTextField56.getText());
+        }       
+       
+    if(jTextField53.getText().length()==0){
+           t_espera[1][2]=0.0; 
+        } 
+        else{
+             t_espera[1][2]= Double.parseDouble(jTextField53.getText());
+        }   
+
+    if(jTextField54.getText().length()==0){
+           t_espera[1][3]=0.0; 
+        } 
+        else{
+             t_espera[1][3]= Double.parseDouble(jTextField54.getText());
+        }       
+    
+    if(jTextField57.getText().length()==0){
+           t_espera[1][4]=0.0; 
+        } 
+        else{
+             t_espera[1][4]= Double.parseDouble(jTextField57.getText());
+        }       
+ 
+        
+        // 
+        
+            if(jTextField30.getText().length()==0){
+           c_inv=0.0; 
+        } 
+        else{
+            c_inv=Double.parseDouble(jTextField30.getText());
+        }   
+            
+       if(jTextField31.getText().length()==0){
+           c_ord=0.0; 
+        } 
+        else{
+             c_ord=Double.parseDouble(jTextField31.getText());
+        }   
+
+       
+       if(jTextField32.getText().length()==0){
+           c_f_espera=0.0; 
+        } 
+        else{
+            c_f_espera=Double.parseDouble(jTextField32.getText()); 
+        }          
+        
+       if(jTextField33.getText().length()==0){
+            c_f_s_espera=0.0; 
+        } 
+        else{
+           c_f_s_espera=Double.parseDouble(jTextField33.getText()); 
+        }        
+         
+       if(jTextField34.getText().length()==0){
+            inv_inicial=0; 
+        } 
+        else{
+          inv_inicial=Integer.parseInt(jTextField34.getText()); 
+        }       
+     
+             
+             
+                Probabilidades p = new Probabilidades();
+                
+                p.setDemanda(demanda_d);
+                p.setTiempoEntrega(t_entrega);
+                p.setTiempoEspera(t_espera);
+                
+                PoliticaInventario pi = new PoliticaInventario(c_inv,c_ord,c_f_espera,c_f_s_espera,inv_inicial);
+                
+                Archivos a = new Archivos();
+                a.escribirPolitica(pi);
+                a.escribirProbabilidades(p);
+                
+                
+                
+                
+                
+                // TODO add your handling code here:
+            } catch (IOException ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+            try {
+                Archivos a = new Archivos();
+                PoliticaInventario pi;
+                Probabilidades p;
+                
+                pi= a.leerPolitica();
+                p=a.leerProbabilidades();
+                  DecimalFormat df = new DecimalFormat("0.00");
+               
+                jTextField1.setText(demanda_d[0][0].toString());
+                
+                
+            } catch (IOException ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            
+            
+            
+                
+                
+                
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -931,6 +1962,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
