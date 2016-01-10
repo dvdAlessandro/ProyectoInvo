@@ -48,6 +48,20 @@ public class Probabilidades implements Serializable{
         this.tiempo_espera = te;
         acumularProbabilidad(te,"tiempo_espera");
     }
+
+    public Double[][] getDemanda_diaria() {
+        return demanda_diaria;
+    }
+
+    public Double[][] getTiempo_entrega() {
+        return tiempo_entrega;
+    }
+
+    public Double[][] getTiempo_espera() {
+        return tiempo_espera;
+    }
+    
+    
     
     private void acumularProbabilidad(Double prob[][],String tipo){
         int i,j;
