@@ -34,6 +34,10 @@ public class Simulacion{
     AuxEspera aux_espera;
     ArrayList<AuxEspera> lista_espera = new ArrayList<AuxEspera>();
     
+   Double c_o,c_f,c_i;
+   
+            
+    
     
 
     public Simulacion(PoliticaInventario poli, Probabilidades probabilidades) {
@@ -134,6 +138,10 @@ public class Simulacion{
             System.out.println("costo_orden: ->" + (nro_ordenes*poli.getCosto_orden()) + "costo faltante: "+costo_faltante+ "costo_promedio: "+ (costo_promedio_diario * (poli.getCosto_inventario()/dias)));
         }*/
         costo_total = (nro_ordenes*poli.getCosto_orden()) + costo_faltante + (costo_promedio_diario * (poli.getCosto_inventario()/dias));
+        c_o=nro_ordenes*poli.getCosto_orden();
+        c_f=costo_faltante;
+        c_i=(costo_promedio_diario * (poli.getCosto_inventario()/dias));
+        
         
        /* if (poli.getQ() == 311 && poli.getR() == 134){
             System.out.println("poliopt: q=" +poli.getQ() + "  r=" + poli.getR() );
