@@ -8,6 +8,7 @@ package proyectoinvo;
 import java.awt.Color;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -1526,13 +1527,19 @@ public class Interfaz extends javax.swing.JFrame {
             PoliticaInventario poliopt = null;
             Simulacion si = null;
             Double costo_menor=9999999999999999999999999999999999999999999999.0;
+            ArrayList<Integer> aux_q = new ArrayList<Integer>();
+            ArrayList<Integer> aux_r = new ArrayList<Integer>();
+            ArrayList<Double> aux_ct = new ArrayList<Double>();
             for (int q = Qmin.intValue() ; q <= Qmax.intValue() ; q++){
                 for (int r = Rmin.intValue() ; r<= Rmax.intValue() ;r++){
                     poli = new PoliticaInventario(c_inv, c_ord,c_f_espera, c_f_s_espera, inv_inicial);
                     poli.setQ(q);
                     poli.setR(r);
+                    aux_q.add(q);
+                    aux_r.add(r);
                     Simulacion s = new Simulacion (poli,p);
                     s.run();
+                    aux_ct.add(s.getCostoTotal());
                     if (s.getCostoTotal() < costo_menor){
                         costo_menor = s.getCostoTotal();
                         si=s;
@@ -1543,7 +1550,7 @@ public class Interfaz extends javax.swing.JFrame {
             
            // System.out.println("poliopt q:" +poliopt.getQ() + " r:"+poliopt.getR() + "costo: "+ costo_menor );
             
-             new simulacionInterfaz(poliopt,si).setVisible(true);
+             new simulacionInterfaz(poliopt,si,aux_q,aux_r,aux_ct).setVisible(true);
              
              
              
