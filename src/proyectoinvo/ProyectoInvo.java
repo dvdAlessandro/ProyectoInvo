@@ -25,7 +25,7 @@ public class ProyectoInvo {
         Double d[][] =new Double[2][10];
         Double tent[][]=new Double[2][4];
         Double tesp[][]=new Double[2][5];
-        
+      /*  
         d[0][0] = 25.0;
         d[0][1] = 26.0;
         d[0][2] = 27.0;
@@ -69,7 +69,7 @@ public class ProyectoInvo {
         tesp[1][2] = 0.15;
         tesp[1][3] = 0.15;
         tesp[1][4] = 0.1;
-                
+        */        
         Probabilidades p = new Probabilidades();
 
         Interfaz I = new  Interfaz ();
